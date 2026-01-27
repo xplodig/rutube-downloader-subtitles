@@ -1,0 +1,17 @@
+# Rutube Video Downloader v2.0.0
+# Core dependencies for the main downloader application
+
+# Video downloading
+yt-dlp>=2023.11.16
+
+# Subtitle generation (optional - only needed if using subtitle tools)
+# faster-whisper>=0.9.0
+
+# Note: faster-whisper is NOT listed here because:
+# 1. It's only needed for subtitle generation (optional feature)
+# 2. It's large (150MB-6GB depending on model)
+# 3. The subtitle tools handle its installation automatically when needed
+# 4. Not all users need subtitle generation
+
+# Python version requirement (not a package, but important)
+# python>=3.7

@@ -1,0 +1,16 @@
+# requirements-full.txt
+# Complete dependency list for Rutube Downloader + Subtitle Generator
+
+# Core downloader
+yt-dlp>=2023.11.16
+
+# Subtitle generation
+faster-whisper>=0.9.0
+
+# Development dependencies (optional)
+# colorama>=0.4.6          # For colored terminal output
+# tqdm>=4.66.1            # For better progress bars
+# requests>=2.31.0        # For potential API features
+
+# Note: Installing faster-whisper upfront will download ~300MB (base model)
+# Run: pip install -r requirements-full.txt

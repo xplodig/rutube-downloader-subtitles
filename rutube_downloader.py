@@ -125,6 +125,7 @@ def download_rutube_video():
     print("-" * 50)
     print("Paste the Rutube video URL below.")
     print("Example: https://rutube.ru/video/8e06c530938f25bf791a71251fe0f04d/")
+    print("Note: For YouTube links, use yt-dlp directly instead.")
     print("-" * 50)
 
     url = input("URL: ").strip()
@@ -133,19 +134,22 @@ def download_rutube_video():
         print("❌ No URL provided. Exiting...")
         return
 
-    # Clean URL - remove query parameters that might cause issues
-    if '?' in url:
+    # Only clean Rutube URLs, not other platforms
+    if 'rutube.ru' in url and '?' in url:
         base_url = url.split('?')[0]
-        print(f"⚠️  Removing query parameters for better compatibility")
+        print(f"⚠️  Removing query parameters from Rutube URL for better compatibility")
         print(f"   Using: {base_url}")
         url = base_url
+    elif 'youtube.com' in url or 'youtu.be' in url:
+        print(f"⚠️  Note: This tool is optimized for Rutube. YouTube may work but isn't fully supported.")
+        print(f"   For best YouTube results, use yt-dlp directly: yt-dlp \"{url}\"")
 
     print("\n📥 Processing...")
 
     # Add a small delay before starting
     time.sleep(random.uniform(0.5, 1.5))
 
-    # Set up download options
+    # Set up download options - use different options for different platforms
     ydl_opts = {
         'format': 'best[ext=mp4]',  # Best MP4 quality
         'outtmpl': os.path.join(DOWNLOADS_FOLDER, '%(title)s.%(ext)s'),
@@ -181,11 +185,16 @@ def download_rutube_video():
             print(f"\n📺 Video Information:")
             print(f"   Title: {title}")
             print(f"   Uploader: {uploader}")
-            if duration > 0:
+            if duration and duration > 0:
                 minutes, seconds = divmod(duration, 60)
                 print(f"   Duration: {int(minutes)}:{int(seconds):02d}")
-            if views > 0:
+            if views and views > 0:
                 print(f"   Views: {views:,}")
+
+            # Warn if it looks like a homepage/playlist instead of video
+            if duration == 0 and 'youtube.com' in url:
+                print(f"\n⚠️  WARNING: This appears to be a YouTube homepage/playlist, not a video.")
+                print(f"   YouTube video URLs should contain 'watch?v=' or 'youtu.be/'")
 
             # Confirm download
             print("\n" + "-" * 50)
@@ -232,7 +241,7 @@ def download_rutube_video():
 
                 # Suggest subtitles
                 print("\n💡 Tip: You can now generate subtitles for this video")
-                print("   Use option 7 from the main menu")
+                print("   Use option 6 from the main menu")
             else:
                 print(f"\n⚠️  Download may have completed, but file not found.")
                 print(f"   Check the {DOWNLOADS_FOLDER} folder manually.")
@@ -250,8 +259,17 @@ def download_rutube_video():
         print("1. URL is incorrect or video is not available")
         print("2. Network connection problem")
         print("3. Video may be private or blocked")
-        print("4. Try removing any query parameters from the URL (?r=wd etc.)")
-        print("5. You may be rate-limited. Wait a few minutes and try again.")
+        print("4. You may be rate-limited. Wait a few minutes and try again.")
+
+        # Platform-specific advice
+        if 'youtube.com' in url or 'youtu.be' in url:
+            print("\nYouTube-specific issues:")
+            print("5. For YouTube, ensure URL has 'watch?v=' followed by video ID")
+            print("6. Example correct URL: https://www.youtube.com/watch?v=CfgMfMOnsRY")
+            print("7. Short URLs should be: https://youtu.be/CfgMfMOnsRY")
+            print("8. Try using yt-dlp directly: yt-dlp \"[URL]\"")
+        else:
+            print("5. Try removing any query parameters from the URL (?r=wd etc.)")
 
 def batch_download_mode():
     """
@@ -277,8 +295,8 @@ def batch_download_mode():
         if url.lower() == 'done':
             break
         if url:
-            # Clean URL
-            if '?' in url:
+            # Clean URL - but only for Rutube URLs
+            if 'rutube.ru' in url and '?' in url:
                 url = url.split('?')[0]
             urls.append(url)
 
