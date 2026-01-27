@@ -391,7 +391,7 @@ MIT License - Free to use, modify, and distribute for personal and commercial us
 
 ## 🔄 Version History
 
-### v2.0.0 (Current) - December 2023
+### v2.0.0 (Current) - Januart 2026
 - **Integrated Subtitle Generation**: Option 6 in main menu for subtitle tools
 - **Smart Detection**: Automatically checks for videos and available subtitle tools
 - **Enhanced Statistics**: Shows subtitle coverage alongside download stats
@@ -429,7 +429,7 @@ MIT License - Free to use, modify, and distribute for personal and commercial us
 
 ---
 
-*Last Updated: December 2023*  
+*Last Updated: January 2026*  
 *Version: 2.0.0*  
 *Author: Andrew Gotham*  
 *Contact: andreogotema@gmail.com*  
